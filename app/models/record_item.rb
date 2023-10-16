@@ -1,0 +1,2 @@
+class RecordItem < ApplicationRecord
+end
