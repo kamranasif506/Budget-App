@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_16_130755) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_16_164821) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_16_130755) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_categories_on_author_id"
   end
 
   create_table "record_items", force: :cascade do |t|
@@ -52,6 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_16_130755) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "users", column: "author_id"
   add_foreign_key "record_items", "categories"
   add_foreign_key "record_items", "records"
   add_foreign_key "records", "users", column: "author_id"
