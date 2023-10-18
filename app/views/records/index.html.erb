@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col-12 m-auto">
-                    <p class="category-name"><%= record.created_at %></p>    
+                    <p class="category-name"><%= record.created_at.strftime('%B %d, %Y at %I:%M %p') %></p>
                 </div>
             </div>
 

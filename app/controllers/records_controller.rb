@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
   def index
     @category = Category.find_by(id: params[:category_id], author: current_user)
     if @category
-      @records = @category.records
+      @records = @category.records.order(created_at: :desc)
       @total_amount = @records.sum(:amount)
     else
       redirect_to categories_path, alert: "Category not found or doesn't belong to you."
