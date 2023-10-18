@@ -1,36 +1,37 @@
 class RecordsController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 
-    def index
-        @category = Category.find_by(id: params[:category_id], author: current_user)
-        if @category
-            @records = @category.records
-            @total_amount = @records.sum(:amount)
-        else
-            redirect_to categories_path, alert: "Category not found or doesn't belong to you."
-        end
+  def index
+    @category = Category.find_by(id: params[:category_id], author: current_user)
+    if @category
+      @records = @category.records
+      @total_amount = @records.sum(:amount)
+    else
+      redirect_to categories_path, alert: "Category not found or doesn't belong to you."
     end
-    def new
-        @category = Category.find(params[:category_id]) 
-        @record = Record.new
-    end
-    def create
-        @category = Category.find(params[:category_id])  # Assuming you set @category in this action.
-        @record = @category.records.new(record_params)
-        @record.author = current_user
-        
-        if @record.save
-            RecordItem.create(record: @record, category_id: params[:category_id])
-          redirect_to category_records_path(@category), notice: 'Record was successfully created.'
-        else
-          render :new
-        end
-    end
-    
-    private
+  end
 
-    def record_params
-        params.require(:record).permit(:name, :amount)
-    end
+  def new
+    @category = Category.find(params[:category_id])
+    @record = Record.new
+  end
 
+  def create
+    @category = Category.find(params[:category_id]) # Assuming you set @category in this action.
+    @record = @category.records.new(record_params)
+    @record.author = current_user
+
+    if @record.save
+      RecordItem.create(record: @record, category_id: params[:category_id])
+      redirect_to category_records_path(@category), notice: 'Record was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def record_params
+    params.require(:record).permit(:name, :amount)
+  end
 end
