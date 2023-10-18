@@ -5,6 +5,7 @@ class RecordsController < ApplicationController
         @category = Category.find_by(id: params[:category_id], author: current_user)
         if @category
             @records = @category.records
+            @total_amount = @records.sum(:amount)
         else
             redirect_to categories_path, alert: "Category not found or doesn't belong to you."
         end
@@ -19,6 +20,7 @@ class RecordsController < ApplicationController
         @record.author = current_user
         
         if @record.save
+            RecordItem.create(record: @record, category_id: params[:category_id])
           redirect_to category_records_path(@category), notice: 'Record was successfully created.'
         else
           render :new

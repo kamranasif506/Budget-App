@@ -12,7 +12,7 @@
     </div>
     
     <% @categories.each do |category| %>
-        <%= link_to category_records_path(category), class: "categories-container border mb-2 p-2" do %>
+        <%= link_to category_records_path(category), class: "text-decoration-none" do %>
     
             <div class="categories-container border mb-2 p-2">
         
@@ -38,11 +38,11 @@
     <% end %>
 </main>
 <footer class="fixed-bottom bg-info">
-    <div class="container pb-3">
-        <div class="row">
-            <div class="col-12 mt-3">
-                <%= button_to "Add Category", new_category_path, class: "btn btn-info w-100 text-white border-white", method: :get %> 
-            </div>
-        </div>
+  <div class="container pb-3">
+    <div class="row">
+      <div class="col-12 mt-3">
+        <%= button_to "Add Category", new_category_path, class: "btn btn-info w-100 text-white border-white", method: :get %> 
+      </div>
     </div>
+  </div>
 </footer>
