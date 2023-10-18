@@ -54,3 +54,7 @@ h5 {
 .text_color {
   color: #434b54;
 }
+
+header {
+  overflow: hidden;
+}
