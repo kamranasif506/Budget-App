@@ -1,7 +1,9 @@
 class CategoriesController < ApplicationController
+    before_action :authenticate_user!
+    
     def index
       user = current_user.id
-      @categories = Category.includes(:author)
+      @categories = Category.where(author_id: user)
     end
     def new
       @category = Category.new
@@ -11,7 +13,6 @@ class CategoriesController < ApplicationController
       @category = Category.new(category_params)
       @category.author = current_user
       if @category.save
-        # Handle successful category creation
         redirect_to categories_path, notice: 'Category was successfully created.'
       else
         render :new
