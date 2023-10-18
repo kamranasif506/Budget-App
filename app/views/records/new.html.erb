@@ -1,0 +1,19 @@
+<section class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <%= form_with(model: [@category, @record], url: category_records_path(@category), method: :post, local: true, class: "form") do |form| %>
+
+        <div class="field">
+          <%= form.text_field :name, placeholder: 'Name', class: 'w-100 custom-field-height form-control' %>
+        </div>
+        <div class="field mt-2">
+          <%= form.number_field :amount, placeholder: '$', class: 'w-100 custom-field-height form-control' %>
+        </div>
+
+        <div class="action d-flex justify-content-center mt-4">
+          <%= form.submit "Add Record", class: 'btn btn-info text-white w-100' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
