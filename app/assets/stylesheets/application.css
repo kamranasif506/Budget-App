@@ -14,37 +14,43 @@
  *= require_self
  */
 
- .page-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 84vh;
- }
+.page-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 84vh;
+}
 
- h1,h2,h3,h4,h5 {
-   font-family: 'Proxima Nova Bold', sans-serif;
- }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Proxima Nova Bold', sans-serif;
+}
 
- .header {
-   height: 10vh;
- }
+.header {
+  height: 10vh;
+}
 
- .actions-btn {
-    border-style: none;
-    color: white;
-    font-size: 17px;
-    font-family: 'Proxima Nova', sans-serif;
- }
+.actions-btn {
+  border-style: none;
+  color: white;
+  font-size: 17px;
+  font-family: 'Proxima Nova', sans-serif;
+}
 
- .actions {
-   position: absolute;
-   top: 3%;
-   right: 3%;
- }
- .custom-field-height {
-   height: 8vh;
-   padding-left: 2%;
- }
- .text_color {
-   color: #434b54 
- }
+.actions {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+}
+
+.custom-field-height {
+  height: 8vh;
+  padding-left: 2%;
+}
+
+.text_color {
+  color: #434b54;
+}
