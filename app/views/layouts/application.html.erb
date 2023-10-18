@@ -13,6 +13,24 @@
   </head>
 
   <body>
+    <%- if controller_name === 'sessions' || controller_name === 'registrations' %>
+      <%= render "devise/shared/header" %>
+    <% else %>
+      <%= render "shared/navbar" %>
+    <% end %>
+    
+     <% if notice %>
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+      <% end %>
+
+      <% if alert %>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
+      <% end %>
+  
     <%= yield %>
   </body>
 </html>
