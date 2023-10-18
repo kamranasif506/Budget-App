@@ -1,0 +1,29 @@
+<%= render "devise/shared/header" %>
+<main class="mt-3">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name', class: 'w-100 custom-field-height form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'w-100 custom-field-height form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password', class: 'w-100 custom-field-height form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm Password', class: 'w-100 custom-field-height form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Next", class: 'actions-btn bg-info' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</main>

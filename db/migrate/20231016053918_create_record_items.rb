@@ -6,7 +6,5 @@ class CreateRecordItems < ActiveRecord::Migration[7.1]
       t.timestamps
     end
 
-    add_index :record_items, :record_id  # Add an index on the record_id foreign key
-    add_index :record_items, :category_id 
   end
 end
