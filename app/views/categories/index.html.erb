@@ -12,34 +12,37 @@
     </div>
     
     <% @categories.each do |category| %>
-        <div class="categories-container border mb-2 p-2">
+        <%= link_to category_records_path(category), class: "text-decoration-none" do %>
     
-            <div class="row category-box">
-                <div class="col-4 text-center m-auto">
-                    <div class="category-icon">
-                        <!-- You can use an image tag or an icon font here -->
-                        <%= image_tag category.icon, class: "category-icon w-100"  if category.icon.attached? %>
-                    </div>    
-                </div>
-                <div class="col-5 text-center m-auto">
-                    <h3 class="category-name"><%= category.name %></h3>    
-                </div>
-                <div class="col-3 text-center m-auto">
-                    <div class="category-amount fw-bold m-auto">
-                        <%= number_to_currency(category.total_amount, unit: "$", precision: 2) %> 
+            <div class="categories-container border mb-2 p-2">
+        
+                <div class="row category-box">
+                    <div class="col-4 text-center m-auto">
+                        <div class="category-icon">
+                            <!-- You can use an image tag or an icon font here -->
+                            <%= image_tag category.icon, class: "category-icon w-100"  if category.icon.attached? %>
+                        </div>    
+                    </div>
+                    <div class="col-5 text-center m-auto">
+                        <h3 class="category-name"><%= category.name %></h3>    
+                    </div>
+                    <div class="col-3 text-center m-auto">
+                        <div class="category-amount fw-bold m-auto">
+                            <%= number_to_currency(category.total_amount, unit: "$", precision: 2) %> 
+                        </div>
                     </div>
                 </div>
+            
             </div>
-        
-        </div>
+        <% end %>
     <% end %>
 </main>
 <footer class="fixed-bottom bg-info">
-    <div class="container pb-3">
-        <div class="row">
-            <div class="col-12 mt-3">
-                <%= button_to "Add Category", new_category_path, class: "btn btn-info w-100 text-white border-white", method: :get %> 
-            </div>
-        </div>
+  <div class="container pb-3">
+    <div class="row">
+      <div class="col-12 mt-3">
+        <%= button_to "Add Category", new_category_path, class: "btn btn-info w-100 text-white border-white", method: :get %> 
+      </div>
     </div>
+  </div>
 </footer>
