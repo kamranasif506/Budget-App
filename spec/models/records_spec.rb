@@ -8,21 +8,21 @@ RSpec.describe Record, type: :model do
     user.destroy if user.persisted?
   end
   it 'is valid with valid attributes' do
-    category = Category.create(name: 'Example Category', author: user)
+    Category.create(name: 'Example Category', author: user)
     record = Record.new(name: 'Example record', amount: 100.00, author: user)
 
     expect(record).to be_valid
   end
 
   it 'is not valid without a name' do
-    category = Category.create(name: 'Example Category', author: user)
+    Category.create(name: 'Example Category', author: user)
     record = Record.new(amount: 100.00, author: user)
     expect(record).not_to be_valid
     expect(record.errors[:name]).to include("can't be blank")
   end
 
   it 'is not valid without an amount' do
-    category = Category.create(name: 'Example Category', author: user)
+    Category.create(name: 'Example Category', author: user)
     record = Record.new(name: 'Example record', author: user)
 
     expect(record).not_to be_valid
@@ -30,7 +30,7 @@ RSpec.describe Record, type: :model do
   end
 
   it 'is not valid without an author' do
-    category = Category.create(name: 'Example Category', author: user)
+    Category.create(name: 'Example Category', author: user)
     record = Record.new(name: 'Example record', amount: 100.00)
 
     expect(record).not_to be_valid

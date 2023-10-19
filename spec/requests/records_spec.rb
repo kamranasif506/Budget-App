@@ -5,8 +5,7 @@ RSpec.describe '/foods', type: :request do
   let(:file) { Tempfile.new(['example_image', '.png']) }
   let(:icon) { fixture_file_upload(file.path, 'image/png') }
   let(:user) { User.create!(name: 'John Doe', email: 'testing@gmail.com', password: 'f4k3p455w0rd') }
-  let(:category) { Category.create(name: 'Example Category', icon: icon, author: user) }
-
+  let(:category) { Category.create(name: 'Example Category', icon:, author: user) }
 
   before(:each) do
     login_as(user, scope: :user)

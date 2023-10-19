@@ -21,7 +21,7 @@ RSpec.feature 'Categories index', type: :feature do
     RecordItem.create(record: @record3, category_id: @category2)
     visit categories_path
   end
-  
+
   scenario 'display category names' do
     expect(page).to have_content('Example Category 1').and have_content('Example Category 2')
   end

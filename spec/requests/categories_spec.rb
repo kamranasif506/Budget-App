@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe '/categories', type: :request do
   let(:user) { User.create(email: 'new@example.com', name: 'Example Name', password: 'password123') }
- 
+
   let(:valid_attributes) do
     file = Tempfile.new(['example_image', '.png'])
     icon = fixture_file_upload(file.path, 'image/png')
     {
       name: 'test1',
-      icon: icon,
+      icon:,
       author_id: user.id # Corrected from `author`
     }
   end
@@ -61,7 +61,6 @@ RSpec.describe '/categories', type: :request do
           post categories_url, params: { category: invalid_attributes }
         end.to change(Category, :count).by(0)
       end
-
     end
   end
 end

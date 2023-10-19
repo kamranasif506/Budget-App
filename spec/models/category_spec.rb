@@ -9,13 +9,13 @@ RSpec.describe Category, type: :model do
   end
   describe 'validations' do
     it 'is valid with valid attributes' do
-        file = Tempfile.new(['example_image', '.png'])
-        icon = fixture_file_upload(file.path, 'image/png')
-        category = Category.new(name: 'Example Category', author: user) # Associate with the user using author_id
-        category.icon.attach(icon)
-      
-        expect(category.icon).to be_attached
-        expect(category).to be_valid
+      file = Tempfile.new(['example_image', '.png'])
+      icon = fixture_file_upload(file.path, 'image/png')
+      category = Category.new(name: 'Example Category', author: user) # Associate with the user using author_id
+      category.icon.attach(icon)
+
+      expect(category.icon).to be_attached
+      expect(category).to be_valid
     end
 
     it 'is not valid without a name' do

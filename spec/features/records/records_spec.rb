@@ -6,7 +6,8 @@ RSpec.feature 'Records show', type: :feature do
   before(:each) do
     login_as(user, scope: :user)
     @category = Category.create!(name: 'Example Category', author: user) do |category|
-      category.icon.attach(io: File.open('app/assets/images/avatar.jpg'), filename: 'icon.png', content_type: 'image/png')
+      category.icon.attach(io: File.open('app/assets/images/avatar.jpg'), filename: 'icon.png',
+                           content_type: 'image/png')
     end
     @record = Record.create!(name: 'Example Record', amount: 50, author: user)
     RecordItem.create(record: @record, category_id: @category.id)
