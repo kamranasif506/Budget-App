@@ -2,9 +2,16 @@
 
   <div class="row bg-info header">
     <div class="col-3 text-center m-auto">
+      <%- if controller_name != 'records' %>
         <a href="<%= request.referer || categories_path %>">
             <i class="fa-solid fa-arrow-left text-white"></i>
         </a>
+      <% else %>
+        <a href="<%= categories_path %>">
+            <i class="fa-solid fa-arrow-left text-white"></i>
+        </a>
+      <% end %>
+        
     </div>
     <div class="col-6 text-center m-auto">
       <h2 class="m-auto text-white"><%= controller_name.titleize %></h2>
