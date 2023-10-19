@@ -62,7 +62,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://budget-app-c5gd.onrender.com/)
-- [Presentation Link]()
+- [Presentation Link](https://drive.google.com/file/d/100-fp0DBrPt9G-88ACVKDR_JeOpBVqMM/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
