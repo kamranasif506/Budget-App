@@ -300,7 +300,7 @@ DEPENDENCIES
   capybara
   database_cleaner
   debug
-  devise
+  devise (~> 4.9.0)
   factory_bot_rails
   importmap-rails
   jbuilder
