@@ -12,23 +12,36 @@ class RecordsController < ApplicationController
   end
 
   def new
-    @category = Category.find(params[:category_id])
     @categories = Category.where(author_id: current_user.id).to_a
+    @category = Category.find_by(id: params[:category_id]) # Find by id to handle nil case
     @record = Record.new
   end
 
   def create
-    p params
-    @category = Category.find(params[:record][:category]) # Assuming you set @category in this action.
-    @record = @category.records.new(record_params)
-    @record.author = current_user
-
-    if @record.save
-      RecordItem.create(record: @record, category_id: params[:record][:category])
-      redirect_to category_records_path(@category), notice: 'Record was successfully created.'
+    if params[:record][:category].empty?
+      redirect_to new_category_record_path(params[:category_id]), alert: 'Category is Required.'
+    elsif params[:record][:name].empty? || params[:record][:amount].empty?
+      redirect_to new_category_record_path(params[:category_id]), alert: 'All fields are required.'
     else
-      render :new
+      @category = Category.find(params[:record][:category]) # Assuming you set @category in this action.
+      if @category.nil?
+        redirect_to new_category_record_path(params[:category_id]), alert: 'Category Not Found.'
+      else
+        @record = @category.records.new(record_params)
+        @record.author = current_user
+        
+        respond_to do |format|
+          if @record.save
+            RecordItem.create!(record: @record, category_id: @category.id) # Use @category.id
+            format.html { redirect_to category_records_path(@category), notice: 'Record was successfully created.' }
+          else
+            redirect_to new_category_record_path(params[:category_id]), alert: 'All parameter are required.'
+          end
+        end
+      end
     end
+    
+    
   end
 
   private
