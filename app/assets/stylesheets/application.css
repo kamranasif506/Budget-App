@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
 main {
@@ -14,7 +14,8 @@ main {
   bottom: 0;
 }
 
-.bg-info,.btn-info {
+.bg-info,
+.btn-info {
   background-color: #3778c2 !important;
 }
 
@@ -33,7 +34,7 @@ main {
   background-clip: padding-box;
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .green {

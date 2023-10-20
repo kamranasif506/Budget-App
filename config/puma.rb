@@ -35,5 +35,5 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 plugin :tmp_restart
 
 # To run Local Server you have to comment these lines below
-# preload_app!
-# workers ENV.fetch("WEB_CONCURRENCY") { 4 }
+preload_app!
+workers ENV.fetch("WEB_CONCURRENCY") { 4 }
