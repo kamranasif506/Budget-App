@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to category_records_path(@category), notice: 'Category was successfully created.'
     else
-      render :new
+      redirect_to new_category_path, alert: 'All fileds are required.'
     end
   end
 
