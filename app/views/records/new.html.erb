@@ -1,0 +1,32 @@
+<section class="container mt-3">
+  
+  <div class="row">
+    <div class="col-12">
+      <%= form_with(model: [@category, @record], local: true, class: "form") do |form| %>
+         <% if @record.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(@record.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+              <ul>
+                <% @record.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        <div class="field">
+          <%= form.text_field :name, placeholder: 'Name', class: 'w-100 custom-field-height form-control'%>
+        </div>
+        <div class="field mt-2">
+          <%= form.number_field :amount, placeholder: '$', class: 'w-100 custom-field-height form-control' %>
+        </div>
+        <div class="field mt-2">
+          <%= form.collection_select :category, @categories, :id, :name, include_blank: "Select a category", class: 'w-100 form-control' %>
+        </div>
+        <div class="action d-flex justify-content-center mt-4">
+          <%= form.submit "Add Record", class: 'btn btn-success green text-white w-100' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+
+<main class="container">
+    <div class="border my-2 p-3 bg-white">
+        <div class="row">
+            <div class="col-9 m-auto">
+                <p class="font-medium text-gray-500 text-xl m-auto">Total Transaction</p>
+            </div>
+            <div class="col-3 text-center m-auto">
+                <p class="text-center font-bold text-xl  m-auto"><%= number_to_currency(@total_amount, unit: '$', precision: 2) %> </p>
+            </div>
+        </div>
+    </div>
+    
+    <% @records.each do |record| %>
+        
+        <div class="categories-container border mb-2 p-2 bg-white">
+    
+            <div class="row category-box">
+                <div class="col-9 m-auto">
+                    <div class="record-name">
+                        <!-- You can use an image tag or an icon font here -->
+                        <h3 class="category-name"><%= record.name %></h3>
+                    </div>    
+                </div>
+                <div class="col-3 text-center m-auto">
+                    <div class="category-amount fw-bold m-auto">
+                        <%= number_to_currency(record.amount, unit: "$", precision: 2) %> 
+                    </div>
+                </div>
+                <div class="col-12 m-auto">
+                    <p class="category-name"><%= record.created_at.strftime('%B %d, %Y at %I:%M %p') %></p>
+                </div>
+            </div>
+
+        
+        </div>
+    <% end %>
+</main>
+<footer class="fixed-bottom bg-info">
+    <div class="container pb-3">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <%= button_to "Add New Record", new_category_record_path(@category), class: "btn btn-info w-100 text-white border-white", method: :get %> 
+            </div>
+        </div>
+    </div>
+</footer>
