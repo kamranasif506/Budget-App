@@ -9,9 +9,11 @@
         <div class="field mt-2">
           <%= form.number_field :amount, placeholder: '$', class: 'w-100 custom-field-height form-control' %>
         </div>
-
+        <div class="field mt-2">
+          <%= form.collection_select :category, @categories, :id, :name, include_blank: "Select a category", class: 'w-100 custom-field-height form-control' %>
+        </div>
         <div class="action d-flex justify-content-center mt-4">
-          <%= form.submit "Add Record", class: 'btn green text-white w-100' %>
+          <%= form.submit "Add Record", class: 'btn btn-success green text-white w-100' %>
         </div>
       <% end %>
     </div>

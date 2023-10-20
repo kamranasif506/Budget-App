@@ -5,6 +5,7 @@ class Category < ApplicationRecord
 
   has_one_attached :icon
   validates :icon, presence: true
+  validates :name, presence: true
 
   def total_amount
     records.sum(:amount)
