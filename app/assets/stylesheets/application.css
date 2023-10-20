@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #F9F9F9;
 }
 
 main {
@@ -11,6 +12,14 @@ main {
 .fixed-bottom {
   position: sticky;
   bottom: 0;
+}
+
+.bg-info,.btn-info {
+  background-color: #3778c2 !important;
+}
+
+.green {
+  background-color: #5fb523;
 }
 
 .page-center {
